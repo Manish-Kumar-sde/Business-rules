@@ -20,6 +20,10 @@ public class Product {
     @JsonManagedReference
     private List<Rule> rules;
 
+    @OneToMany(mappedBy = "product", cascade = CascadeType.ALL, orphanRemoval = true,fetch = FetchType.LAZY)
+    @JsonManagedReference
+    private List<Variable> variables;
+
     @Override
     public String toString() {
         return "Product{" +
@@ -28,6 +32,7 @@ public class Product {
                 ", name='" + name + '\'' +
                 ", description='" + description + '\'' +
                 ", rules=" + rules +
+                ", variables=" + variables +
                 '}';
     }
 }
