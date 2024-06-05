@@ -19,4 +19,15 @@ public class Product {
     @OneToMany(mappedBy = "product", cascade = CascadeType.ALL, orphanRemoval = true, fetch=FetchType.LAZY)
     @JsonManagedReference
     private List<Rule> rules;
+
+    @Override
+    public String toString() {
+        return "Product{" +
+                "id=" + id +
+                ", code='" + code + '\'' +
+                ", name='" + name + '\'' +
+                ", description='" + description + '\'' +
+                ", rules=" + rules +
+                '}';
+    }
 }

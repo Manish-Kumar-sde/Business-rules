@@ -21,4 +21,14 @@ public class Rule {
     @JoinColumn(name = "product_id")
     @JsonBackReference
     private Product product;
+
+    @Override
+    public String toString() {
+        return "Rule{" +
+                "id=" + id +
+                ", code='" + code + '\'' +
+                ", description='" + description + '\'' +
+                ", condition='" + condition + '\'' +
+                '}';
+    }
 }
