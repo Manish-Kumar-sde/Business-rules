@@ -13,7 +13,7 @@ public class Variable {
     private String name;
     private String type;
     private boolean required;
-    @ManyToOne(fetch=FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "product_id")
     @JsonBackReference
     private Product product;

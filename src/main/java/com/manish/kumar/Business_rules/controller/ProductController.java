@@ -5,8 +5,6 @@ import com.manish.kumar.Business_rules.repository.ProductRepository;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.Optional;
-
 @RestController
 
 public class ProductController {
@@ -16,14 +14,14 @@ public class ProductController {
         this.repository = repository;
     }
 
-    @PostMapping(value = "/v1/products",consumes = MediaType.APPLICATION_JSON_VALUE)
-    public String saveProduct(@RequestBody Product product){
+    @PostMapping(value = "/v1/products", consumes = MediaType.APPLICATION_JSON_VALUE)
+    public String saveProduct(@RequestBody Product product) {
         Product product1 = repository.save(product);
         return product1.toString();
     }
 
     @GetMapping("/v1/products/{id}")
-    public Product getProduct(@PathVariable Integer id){
+    public Product getProduct(@PathVariable Integer id) {
         return repository.findById(id).orElse(new Product());
     }
 }
