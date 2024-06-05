@@ -21,7 +21,7 @@ public class RuleEvaluationController {
         this.ruleEvaluationService = ruleEvaluationService;
     }
 
-    @PostMapping("/v1/rule-evaluat/{product_id}")
+    @PostMapping("/v1/rule-evaluate/{product_id}")
     public Map<String, String> ruleEvaluation(@PathVariable Integer product_id, @RequestBody Map<String, Object> variables) {
         Product product = productRepository.findById(product_id).orElse(new Product());
         System.out.println(variables.toString());
