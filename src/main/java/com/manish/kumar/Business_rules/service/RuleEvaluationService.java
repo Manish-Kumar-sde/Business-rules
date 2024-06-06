@@ -13,16 +13,16 @@ import java.util.Map;
 @Service
 @Slf4j
 public class RuleEvaluationService {
-    public Map<String,String> evaluateRules(List<Rule> rules, Map<String, Object> variables){
+    public Map<String, String> evaluateRules(List<Rule> rules, Map<String, Object> variables) {
         Map<String, String> results = new HashMap<>();
-        log.info("{}",rules);
+        log.info("{}", rules);
         for (Rule rule : rules) {
             String condition = rule.getCondition();
             try {
-                String result = MVEL.eval(condition,variables,String.class);
+                String result = MVEL.eval(condition, variables, String.class);
                 results.put(rule.getCode(), result);
-            }catch (Exception exception){
-                log.error("Exception {}", exception.getClass() );
+            } catch (Exception exception) {
+                log.error("Exception {}", exception.getClass());
             }
 
         }

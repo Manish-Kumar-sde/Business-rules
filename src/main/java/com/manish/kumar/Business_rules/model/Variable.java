@@ -6,15 +6,13 @@ import lombok.Data;
 
 @Data
 @Entity
-public class Rule {
+public class Variable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private int id;
-    private String code;
-    private String description;
-    private String condition;
-
-
+    private Integer id;
+    private String name;
+    private String type;
+    private boolean required;
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "product_id")
     @JsonBackReference
@@ -22,11 +20,11 @@ public class Rule {
 
     @Override
     public String toString() {
-        return "Rule{" +
+        return "Variable{" +
                 "id=" + id +
-                ", code='" + code + '\'' +
-                ", description='" + description + '\'' +
-                ", condition='" + condition + '\'' +
+                ", name='" + name + '\'' +
+                ", type='" + type + '\'' +
+                ", required=" + required +
                 '}';
     }
 }
